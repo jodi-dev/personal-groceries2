@@ -64,16 +64,6 @@ $(document).ready( function filterProds() {
         }
     });
 
-    // min price update
-    $('#min-price').change(function() {
-        minPrice = $(this).val();
-    });
-
-    // max price update
-    $('#max-price').change(function() {
-        maxPrice = $(this).val();
-    });
-
     // $('input[name="product"]').change(function() {
     //     selectedItems();
     // });

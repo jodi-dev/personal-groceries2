@@ -8,27 +8,23 @@ $(document).ready(function(){
                 <div class="card">
                     <div class="card-body">
                         <div class="form-check pull-right">
-                            <input class="form-check-input" type="checkbox" name="product" value=${p[0]}>
+                            <input class="form-check-input" type="checkbox" name="product" id=${p[0]} value=${p[0]}>
                             <label class="form-check-label"></label>
                         </div>
                         <h4 class="card-title">${p[0]}</h4>
                         <p class="card-text">$ ${p[1]}</p>
-                        <a onClick="test()" class="stretched-link"></a>
                     </div>
                 </div>
             `
         });
         document.getElementById("shop").innerHTML = content;
     }
-    document.getElementById("min-price").value = minPrice;
-    document.getElementById("max-price").value = maxPrice;
 });
 
 function test() {
-    alert("!");
 }
 
-var chosenProducts = [];
+var chosenProducts = {};
 
 function updateShop(shop) {
     let filtered = [];
@@ -96,6 +92,7 @@ function updateShop(shop) {
         checkBox.className = "form-check-input";
         checkBox.type = "checkbox";
 		checkBox.name = "product";
+        checkBox.id = productName;
 		checkBox.value = productName;
         let cardTitle = document.createElement('h4');
         cardTitle.innerText = productName;
@@ -120,20 +117,20 @@ function updateShop(shop) {
 
 function selectedItems(){
 	
-	let ele = document.getElementsByName("product");
+	let ele = document.getElementsByName("product"); // returns object node list
 	
 	let c = document.getElementById('displayCart');
 	c.innerHTML = "";
 	
 	// build list of selected item
 	let para = document.createElement("p");
-	para.innerHTML = "You selected : ";
-	para.appendChild(document.createElement("br"));
 	for (i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
 			para.appendChild(document.createTextNode(ele[i].value));
 			para.appendChild(document.createElement("br"));
-			chosenProducts.push(ele[i].value);
+            if (!chosenProducts[ele[i].value]) {
+                chosenProducts[ele[i].value] = 1;
+            }
 		}
 	}
 		
@@ -146,14 +143,15 @@ function selectedItems(){
 function getTotalPrice(chosenProducts) {
 	totalPrice = 0;
 
-    if (chosenProducts.length > 0) {
-        for (let i=0; i<chosenProducts.length; i+=1) {
-            for (let j=0; j<all_items.length;j+=1 ) {
-                if (chosenProducts[i] == all_items[j][0]) {
+    if (Object.keys(chosenProducts).length > 0) {
+        // possible to have value as how many selected
+        for (const [key, value] of Object.entries(chosenProducts)) {
+            for (let j=0; j<all_items.length; j+= 1) {
+                if (key == all_items[j][0]) {
                     totalPrice += parseInt(all_items[j][1]);
                 }
             }
-	    }
+        }
     }
 	
 	return totalPrice;
