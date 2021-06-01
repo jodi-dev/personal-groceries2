@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand mx-auto" href="#">Simple Shop</a></div>
+    </nav>
+    <div class="container">
+        <div class="row" id="main">
+            <div class="col-md-6" style="max-width: 70%;min-width: 70%;">
+                <div class="card-deck" id="shop">
+                </div>
+            </div>
+            <div class="col-md-6" style="max-width: 30%;">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Customize</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Cart</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                            <div class="row tab-row top-row">
+                                <div class="col">
+                                    <h5>Preferences</h5>
+                                    <form>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="nuts" name="allergy" value="nuts"><label class="form-check-label" for="nuts">No nuts</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="dairy" name="allergy" value="dairy"><label class="form-check-label" for="dairy">No dairy</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="organic" name="organic" value="organic"><label class="form-check-label" for="berries">Organic only</label></div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row tab-row">
+                                <div class="col text-center"><button class="btn btn-primary btn-block" type="button" id="apply" onclick="updateShop('shop')">Apply Customizations</button>
+                                <button class="btn btn-secondary btn-block" type="button" id="clear">Clear Shopping Session & Restart</button>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                            <div class="row tab-row top-row">
+                                <div class="col">
+                                    <h5>Cart</h5>
+                                    <div id="displayCart"></div>
+                                </div>
+                            </div>
+                            <div class="row tab-row">
+                                <div class="col text-center"><button class="btn btn-primary btn-block" type="button" id="checkout">Checkout Groceries</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="foot">
+            <small>&copy; Copyright 2021 Elysaia</small>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/groceries_list.js"></script>
+</body>
+
+</html>
