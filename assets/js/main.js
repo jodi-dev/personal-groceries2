@@ -131,6 +131,10 @@ function updateShop(shop) {
         let cardText = document.createElement('p');
         cardText.className = 'card-text';
         cardText.innerText = '$ ' + productPrice;
+        let stretchedLink = document.createElement('a');
+        stretchedLink.className = "stretched-link";
+        stretchedLink.id = productName;
+        stretchedLink.onclick = chooseProductByClick;
 
         var label = document.createElement('label')
         label.className = 'form-check-label';
@@ -143,6 +147,7 @@ function updateShop(shop) {
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         card.appendChild(cardBody);
+        card.appendChild(stretchedLink);
         shop.appendChild(card);
 	}
 }
