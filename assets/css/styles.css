@@ -1,4 +1,12 @@
 /*https://stackoverflow.com/questions/38895106/how-to-limit-number-of-columns-of-card-deck*/
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+h1, h2 {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
 .card-deck{
     margin-top: 10px;
     margin-left: auto;
@@ -33,4 +41,5 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    padding-bottom: 2rem;
 }
