@@ -68,16 +68,16 @@ $(document).ready( function filterProds() {
     //     selectedItems();
     // });
 
-    // $(document).on("change", 'input[name="product"]', function() {
-    //     // Your code here
-    //     if (this.checked) {
-    //         chosenProducts = [];
-    //         selectedItems();
-    //     } else {
-    //         chosenProducts = [];
-    //         selectedItems();
-    //     }
-    // });
+    $(document).on("change", 'input[name="product"]', function() { // keeping this implementation to allow tabbing
+        // Your code here
+        if (this.checked) {
+            chosenProducts = [];
+            selectedItems();
+        } else {
+            chosenProducts = [];
+            selectedItems();
+        }
+    });
 
     // apply selections
     $('#checkout').click(function() {

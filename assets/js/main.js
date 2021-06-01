@@ -167,7 +167,7 @@ function selectedItems(){
                 chosenProducts[ele[i].value] = 1;
             }
             para.appendChild(document.createTextNode(ele[i].value));
-            para.appendChild(document.createTextNode(" x " + chosenProducts[ele[i].value]))
+            para.appendChild(document.createTextNode(" x " + chosenProducts[ele[i].value]));
 			para.appendChild(document.createElement("br"));
 		}
 	}
