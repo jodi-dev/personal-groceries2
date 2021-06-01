@@ -6,14 +6,15 @@ $(document).ready(function(){
             content += 
             `
                 <div class="card">
-                    <div class="card-body">
-                        <div class="form-check pull-right">
-                            <input class="form-check-input" type="checkbox" name="product" id=${p[0]} value=${p[0]}>
+                    <div class="form-check groceries-forms pull-right">
+                            <input class="form-check-input" type="checkbox" name="product" value=${p[0]}>
                             <label class="form-check-label"></label>
-                        </div>
+                    </div>
+                    <div class="card-body">
                         <h4 class="card-title">${p[0]}</h4>
                         <p class="card-text">$ ${p[1]}</p>
                     </div>
+                    <a onclick="chooseProductByClick()" class="stretched-link" id=${p[0]}></a>
                 </div>
             `
         });
@@ -21,7 +22,38 @@ $(document).ready(function(){
     }
 });
 
-function test() {
+// function chooseCheck() {
+//     $('input[name="product"]').each(
+//         function() {
+//             if (this.checked) {
+//                 chosenProducts = [];
+//                 selectedItems();
+//             } else {
+//                 chosenProducts = [];
+//                 selectedItems();
+//             }
+//         }
+//     )
+// }
+
+function chooseProductByClick() {
+    let prodName = event.target.id;
+    $('input:checkbox[name="' + "product" + '"][value="' + prodName + '"]')
+    .each(
+        function() {
+        if ( $(this).val() ==  prodName ) {
+            if ($(this).is(':checked')) {
+                $(this).attr("checked", false);
+                chosenProducts = [];
+                selectedItems();
+            } else {
+                $(this).attr("checked", true);
+                chosenProducts = [];
+                selectedItems();
+            }
+        }
+        }
+    )
 }
 
 var chosenProducts = {};
@@ -87,12 +119,12 @@ function updateShop(shop) {
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
         let formCheck = document.createElement('div');
-        formCheck.className = 'form-check pull-right';
+        formCheck.className = 'form-check groceries-forms pull-right';
         let checkBox = document.createElement("input");
         checkBox.className = "form-check-input";
         checkBox.type = "checkbox";
 		checkBox.name = "product";
-        checkBox.id = productName;
+        //checkBox.id = productName;
 		checkBox.value = productName;
         let cardTitle = document.createElement('h4');
         cardTitle.innerText = productName;
@@ -107,7 +139,7 @@ function updateShop(shop) {
 
         formCheck.appendChild(checkBox);
         formCheck.appendChild(label);
-        cardBody.appendChild(formCheck);
+        card.appendChild(formCheck);
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         card.appendChild(cardBody);
@@ -126,11 +158,12 @@ function selectedItems(){
 	let para = document.createElement("p");
 	for (i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
-			para.appendChild(document.createTextNode(ele[i].value));
-			para.appendChild(document.createElement("br"));
             if (!chosenProducts[ele[i].value]) {
                 chosenProducts[ele[i].value] = 1;
             }
+            para.appendChild(document.createTextNode(ele[i].value));
+            para.appendChild(document.createTextNode(" x " + chosenProducts[ele[i].value]))
+			para.appendChild(document.createElement("br"));
 		}
 	}
 		
@@ -148,7 +181,7 @@ function getTotalPrice(chosenProducts) {
         for (const [key, value] of Object.entries(chosenProducts)) {
             for (let j=0; j<all_items.length; j+= 1) {
                 if (key == all_items[j][0]) {
-                    totalPrice += parseInt(all_items[j][1]);
+                    totalPrice += value * parseInt(all_items[j][1]);
                 }
             }
         }

@@ -15,6 +15,14 @@ h1, h2 {
     grid-gap: .5rem;
 }
 
+.groceries-forms {
+    background-color:#bad8ff;
+}
+
+.card-body {
+    transform: rotate(0);
+}
+
 .stretched-link {
     cursor: pointer;
 }
