@@ -25,3 +25,4 @@ Same stuff from the old version:
 Others:
 - [Bootstrap stretch link](https://getbootstrap.com/docs/4.4/utilities/stretched-link/)
 - [HTML emojis](https://www.w3schools.com/charsets/ref_emoji.asp)
+- [Bootstrap modal dismissal event listener](https://stackoverflow.com/questions/8363802/bind-a-function-to-twitter-bootstrap-modal-close)

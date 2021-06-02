@@ -81,7 +81,10 @@ $(document).ready( function filterProds() {
 
     $('#checkout').click(function() {
         //alert("You have checked out!");
-        window.location.reload();
+        $('#checkedoutModal').modal('show');
+        $('#checkedoutModal').on('hidden.bs.modal', function () {
+            window.location.reload();
+        });
     });
 
     // clear selections
@@ -94,6 +97,5 @@ $(document).ready( function filterProds() {
         //allergiesChecked = [];
         window.location.reload();
     });
-
 
 });
