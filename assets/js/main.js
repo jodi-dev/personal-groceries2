@@ -61,6 +61,18 @@ var chosenProducts = {};
 function updateShop(shop) {
     let filtered = [];
     let v;
+
+    if (Object.keys(chosenProducts).length > 0) {
+            $('#alertModal').modal('show');
+            $('#alert').click(function() {
+                for (var key in chosenProducts) {
+                    delete chosenProducts[key];
+                }
+                let c = document.getElementById('displayCart');
+                c.innerHTML = "";
+            });
+    }
+
     //alert("my allergies are: " + allergiesChecked.join(","));
     if (organicOnly == false && allergiesChecked.length > 0) {
         for (let i = 0; i<all_items.length; i+=1) {

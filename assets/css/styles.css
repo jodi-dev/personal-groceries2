@@ -44,9 +44,21 @@ h1, h2 {
     text-align: right;
 }
 
+.modal-footer {
+    border: 0;
+}
+
+.modal-header {
+    border: 0;
+}
+
 #main {
     margin-top: 5rem;
     margin-bottom: 10rem;
+}
+
+#checkoutImage {
+    
 }
 
 #foot {

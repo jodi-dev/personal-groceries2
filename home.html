@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Roboto&display=swap" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -36,15 +35,54 @@
                                     <form>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="nuts" name="allergy" value="nuts"><label class="form-check-label" for="nuts">No nuts &#128683; &#129372;</label></div>
                                         <div class="form-check"><input class="form-check-input" type="checkbox" id="dairy" name="allergy" value="dairy"><label class="form-check-label" for="dairy">No dairy &#128683; &#129371;</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="organic" name="organic" value="organic"><label class="form-check-label" for="berries">Organic only &#127793;</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" id="organic" name="organic" value="organic"><label class="form-check-label" for="organic">Organic only &#127793;</label></div>
                                     </form>
                                 </div>
                             </div>
                             <div class="row tab-row">
                                 <div class="col text-center"><button class="btn btn-primary btn-block" type="button" id="apply" onclick="updateShop('shop')">Apply Customizations</button>
-                                <button class="btn btn-secondary btn-block" type="button" id="clear">Clear Shopping Session & Restart</button>
+                                <button class="btn btn-secondary btn-block" type="button" data-toggle="modal" data-target="#clearModal">Clear Shopping Session & Restart</button>
                                 </div>
-    
+                                <!--Clear cart alert modal-->
+                                <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="alertModalLabel">Apply new preferences?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        You have products in your cart! Applying new preferences will clear your cart. Proceed?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="alert" data-dismiss="modal">Confirm</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Clear session modal -->
+                                <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="clearModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="clearModalLabel">Clear selections?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Your preferences and shopping cart will be cleared.
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="clear">Confirm</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="tab-2">
@@ -55,7 +93,27 @@
                                 </div>
                             </div>
                             <div class="row tab-row">
-                                <div class="col text-center"><button class="btn btn-primary btn-block" type="button" id="checkout">Checkout Groceries</button></div>
+                                <div class="col text-center"><button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#checkoutModal">Checkout Groceries</button></div>
+                                <!-- Checkout groceries modal -->
+                                <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="checkoutModalLabel">Finished shopping?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Checkout now and your groceries will be delivered to your door by our shoppers.
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary" id="checkout">Confirm</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

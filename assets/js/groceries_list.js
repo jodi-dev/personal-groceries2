@@ -71,17 +71,16 @@ $(document).ready( function filterProds() {
     $(document).on("change", 'input[name="product"]', function() { // keeping this implementation to allow tabbing
         // Your code here
         if (this.checked) {
-            chosenProducts = [];
+            chosenProducts = {};
             selectedItems();
         } else {
-            chosenProducts = [];
+            chosenProducts = {};
             selectedItems();
         }
     });
 
-    // apply selections
     $('#checkout').click(function() {
-        alert("You have checked out!");
+        //alert("You have checked out!");
         window.location.reload();
     });
 
@@ -94,6 +93,7 @@ $(document).ready( function filterProds() {
         //maxPrice = 100;
         //allergiesChecked = [];
         window.location.reload();
-        alert("All selections cleared");
     });
+
+
 });
