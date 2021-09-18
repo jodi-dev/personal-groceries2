@@ -27,4 +27,4 @@ Others:
 - [HTML emojis](https://www.w3schools.com/charsets/ref_emoji.asp)
 - [Bootstrap modal dismissal event listener](https://stackoverflow.com/questions/8363802/bind-a-function-to-twitter-bootstrap-modal-close)
 
-Hosted at: [personal-groceries2.herokuapp.com](personal-groceries2.herokuapp.com)
+Hosted at: [personal-groceries2.herokuapp.com](http://personal-groceries2.herokuapp.com)
